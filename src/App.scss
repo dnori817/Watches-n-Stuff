@@ -1,0 +1,13 @@
+// CSS Reset
+@import "~reset-css/reset.css";
+
+//materialize-css
+@import "~materialize-css/dist/css/materialize.css";
+
+// Box sizing
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	box-sizing: border-box;
+}

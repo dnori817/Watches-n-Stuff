@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title><%- title %></title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css"/>
+		<style>
+			body {
+				background: #FAFAFA;
+			}
+
+			.Header {
+				padding: 10px 20px;
+				box-shadow: 0 0 2px rgba(0, 0, 0, 0.24),
+				            0 0 4px rgba(0, 0, 0, 0.12);
+				background: #FFF;
+			}
+			.Header-title {
+				font-size: 18px;
+				color: #4a4a4a;
+			}
+			.Header-title:hover {
+				color: #777;
+			}
+
+			.Page {
+				max-width: 780px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			.TabHeader {
+				float: left;
+				margin-bottom: 20px;
+			}
+			.TabHeader-link {
+				float: left;
+				font-size: 28px;
+				line-height: 36px;
+				color: #AAA;
+				padding-right: 10px;
+				margin-right: 10px;
+				border-right: 2px solid #EEE;
+			}
+			.TabHeader-link:last-child {
+				border: none;
+			}
+			.TabHeader-link.is-active,
+			.TabHeader-link:hover {
+				color: #4A4A4A;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="Header">
+			<a class="Header-title" href="/admin">eCommerce Admin</a>
+		</header>
+		<main class="Page">
+			<%- include(`./pages/${page}`, data) %>
+		</main>
+	</body>
+</html>

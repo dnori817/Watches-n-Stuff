@@ -1,0 +1,79 @@
+<style>
+	.notification {
+		text-align: center;
+	}
+
+	.table .tr .td {
+		vertical-align: middle;
+	}
+
+	.Order-address {
+		font-size: 11px;
+	}
+	.Order-products {
+		font-size: 12px;
+	}
+</style>
+
+<div class="Orders box">
+	<div class="Orders-header is-clearfix">
+		<h1 class="TabHeader">
+			<a href="/admin" class="TabHeader-link">Products</a>
+			<a href="/admin/orders" class="TabHeader-link is-active">Orders</a>
+		</h1>
+	</div>
+
+	<table class="Orders-orders table is-striped is-fullwidth">
+		<thead class="thead">
+			<tr class="tr">
+				<td class="td">Name</td>
+				<td class="td">Address</td>
+				<td class="td">Order Time</td>
+				<td class="td">Product(s)</td>
+			</tr>
+		</thead>
+		<tbody class="tbody">
+			<% if (orders.length) { %>
+				<% for (let i = 0; i < orders.length; i++) { %>
+					<% const order = orders[i]; %>
+					<tr class="Order tr">
+						<td class="Order-name td">
+							<p><%- order.name %></p>
+						</td>
+						<td class="Order-address td">
+							<p><%- order.address %></p>
+							<% if (order.address2) { %>
+								<p><%- order.address2 %></p>
+							<% } %>
+							<p>
+								<%- order.city %>,
+								<%- order.get("state") %>
+								<%- order.zipcode %>
+								</p>
+						</td>
+						<td class="Order-time td">
+							<%- order.createdAt.toLocaleDateString("en-US", {
+								year: "numeric",
+								month: "short",
+    						day: "numeric",
+								hour: "2-digit",
+								minute: "2-digit",
+							}) %>
+						</td>
+						<td class="Order-products td">
+							<% for (let i = 0; i < order.products.length; i++) { %>
+								<p><%- order.products[i].name; %></p>
+							<% } %>
+						</td>
+					</tr>
+				<% } %>
+			<% } else { %>
+				<tr><td colspan="4">
+					<div class="Order-orders-empty notification is-warning">
+						No orders have been made yet
+					</div>
+				</td></tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>

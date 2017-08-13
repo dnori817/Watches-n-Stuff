@@ -1,0 +1,48 @@
+<style>
+	.Login {
+		max-width: 340px;
+		margin: 0 auto;
+		padding: 20px;
+		text-align: center;
+	}
+	.Login-title {
+		font-size: 26px;
+		margin-bottom: 10px;
+	}
+	.Login-password {
+		display: block;
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto 10px;
+	}
+	.Login-submit {
+		display: block;
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+</style>
+
+<form class="Login box" method="post">
+	<h1 class="Login-title">Login</h1>
+	<input type="hidden" name="to" value="<%= to %>"/>
+	<div class="control">
+		<input
+			id="password-input"
+			class="Login-password input"
+			placeholder="password"
+			type="password"
+			name="password"
+		/>
+		<% if (typeof error !== 'undefined' && error) { %>
+			<div class="help is-danger"><%- error %></div>
+		<% } %>
+	</div>
+	<button class="Login-submit button is-info">
+		Submit
+	</button>
+</form>
+
+<script>
+	document.getElementById("password-input").focus();
+</script>

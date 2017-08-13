@@ -1,0 +1,104 @@
+<style>
+	.notification {
+		text-align: center;
+	}
+
+	.List-header .button {
+		float: right;
+		margin-left: 6px;
+	}
+
+	.Product {
+		display: block;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #EEE;
+		text-decoration: none;
+		color: #4a4a4a;
+	}
+	.Product:last-child {
+		border: none;
+	}
+	.Product-image {
+		float: left;
+		height: 80px;
+		width: 80px;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-right: 20px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	}
+	.Product-info-name {
+		font-size: 22px;
+		line-height: 48px;
+		color: #222;
+	}
+	.Product-info-detail {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 14px;
+	}
+	.Product-info-detail:after {
+		content: "";
+		display: inline-block;
+		vertical-align: top;
+		width: 4px;
+		height: 4px;
+		margin: 9px 4px 0;
+		border-radius: 100%;
+		background: #DDD;
+	}
+	.Product-info-detail:last-child:after {
+		display: none;
+	}
+</style>
+
+<div class="List box">
+	<% if (message) { %>
+		<div class="notification <%- messageType %>">
+			<%- message %>
+		</div>
+	<% } %>
+
+	<div class="List-header is-clearfix">
+		<h1 class="TabHeader">
+			<a href="/admin" class="TabHeader-link is-active">Products</a>
+			<a href="/admin/orders" class="TabHeader-link">Orders</a>
+		</h1>
+		<a href="/admin/import" class="List-header-import button is-success is-outlined">Import JSON</a>
+		<a href="/admin/add" class="List-header-add button is-success">Add Product</a>
+	</div>
+
+	<div class="List-products">
+		<% if (products.length) { %>
+			<% for (let i = 0; i < products.length; i++) { %>
+				<% const product = products[i]; %>
+				<a class="Product is-clearfix" href="/admin/edit/<%- product.id %>">
+					<div
+						class="Product-image"
+						style="background-image: url(<%- product.images[0].small %>);"
+					></div>
+					<div class="Product-info">
+						<div class="Product-info-name">
+							<%- product.name %>
+						</div>
+						<div class="Product-info-detail">
+							$<%- product.get("price") %>
+						</div>
+						<div class="Product-info-detail">
+							<%- product.category || "No category" %>
+						</div>
+						<div class="Product-info-detail">
+							<%- product.specs.length %> specs
+						</div>
+					</div>
+				</a>
+			<% } %>
+		<% } else { %>
+			<div class="List-products-empty notification is-warning">
+				No products have been added
+			</div>
+		<% } %>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<style>
+	.Import-title {
+		font-size: 26px;
+		margin-bottom: 10px;
+	}
+</style>
+
+<form class="Import box" method="post">
+	<h1 class="Import-title">Import Product JSON</h1>
+
+	<div class="field">
+		<div class="control">
+			<div class="help">
+				Paste in a JSON array of products. This should match the specifications
+				outlined in the <a href="https://github.com/wbobeirne/nycda-ecommerce-server/wiki/Admin-Overview#json-import---adminimport">
+				wiki documentation</a>. Imgur has a very low upload limit, so you may
+				end up with some products missing images after the import. Don't worry,
+				just wait an hour, go to each product, and re-save it again to fix it.
+			</div>
+			<div class="help is-info">
+				Imports take a decent amount of time (10-30s), so please be patient.
+				<br/>
+				<br/>
+			</div>
+			<textarea
+				class="textarea"
+				placeholder='Insert JSON here'
+				name="json"
+			><%- json %></textarea>
+			<% if (typeof error !== 'undefined' && error) { %>
+				<div class="help is-danger"><%- error %></div>
+			<% } %>
+		</div>
+	</div>
+
+
+	<div class="field">
+		<div class="control">
+			<label class="checkbox">
+				<input type="checkbox" name="deleteAll" value="1">
+				<span>Delete all products</span>
+				<span class="help is-danger">
+					This will delete all old products, so that only the JSON is
+					in the database. This cannot be undone.
+				</span>
+			</label>
+		</div>
+	</div>
+
+	<button class="Login-submit button is-info">
+		Submit
+	</button>
+</form>
