@@ -2,18 +2,25 @@ import "./App.scss";
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navigation from "components/Navigation";
-import PRODUCTS from "json/products.json";
+// import PRODUCTS from "json/products.json";
 import Home from "pages/Home";
 import All from "pages/All";
 import Detail from "pages/Detail";
 import Cart from "pages/Cart";
+import Checkout from "pages/Checkout";
+import Success from "pages/Success";
 
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "reducers";
 
+const store = createStore(reducers);
 
 class App extends React.Component {
 	state = {
-		products: PRODUCTS,
+		// products: PRODUCTS,
 		cart: [],
+		carTotal: 0,
 	}
 
 	_getProduct = (productId) => {
@@ -21,6 +28,7 @@ class App extends React.Component {
 			return product.id === productId ? product : prev;
 		});
 	}
+
 	_addToCart = (productId) => {
 		const { cart, products } = this.state;
 		this.setState({
@@ -28,30 +36,43 @@ class App extends React.Component {
 				...cart,
 				this._getProduct(productId),
 			],
-			// cartTotal: cart.length + 1,
+			cartTotal: cart.length + 1,
 		});
 		console.log(cart);
 	}
+
 	render() {
+		const { products, cart, cartTotal } = this.state;
 		return (
-			<BrowserRouter>
-				<div>
-					<Navigation/>
-					<Switch>
-						<Route exact path="/" component={Home}/>
-						<Route exact path="/All" component={All}/>
-						<Route exact path="/Cart" component={Cart}/>
-						<Route exact path="/Detail/:productId" render={(props) => {
-							return (
-								<Detail
-									product= {this._getProduct(props.match.params.productId)}
-									addToCart = {this._addToCart}
-								/>);
-						}}
-						/>
-					</Switch>
-				</div>
-			</BrowserRouter>
+			<Provider store={store}>
+				<BrowserRouter>
+					<div>
+						<Navigation cartTotal={this.state.cartTotal}/>
+						<Switch>
+							<Route exact path="/" component={Home}/>
+							<Route exact path="/All" component={All}/>
+							<Route exact path="/Checkout" component={Checkout}/>
+
+							<Route exact path="/Cart" render = {(props) => {
+								return (
+									<Cart cart = {cart}/>
+								);
+							}}
+							/>
+							<Route exact path="/Detail/:productId" render={(props) => {
+								return (
+									<Detail
+										product= {this._getProduct(props.match.params.productId)}
+										addToCart = {this._addToCart}
+									/>
+								);
+							}}
+							/>
+							<Route exact path="/Success" component={Success}/>
+						</Switch>
+					</div>
+				</BrowserRouter>
+			</Provider>
 
 		);
 	}

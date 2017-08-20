@@ -4,6 +4,9 @@ import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
 
 class Detail extends Component {
+	constructor(props) {
+		super(props);
+	}
 	_handleClick = (productId) => {
 		this.props.addToCart(this.props.product.id);
 	};

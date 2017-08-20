@@ -12,7 +12,7 @@ router.use(BodyParser.json());
 // ----------------------------------------------------------------------------
 
 router.get("/products", (req, res) => {
-	const order = SORTS[req.query.sort.toLowerCase()] || [["updatedAt", "DESC"]];
+	const order = SORTS[req.query.sort && req.query.sort.toLowerCase()] || [["updatedAt", "DESC"]];
 	const where = {};
 
 	// Search name & description
