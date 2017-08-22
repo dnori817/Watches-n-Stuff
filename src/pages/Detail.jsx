@@ -1,17 +1,26 @@
 import "./Detail.scss";
 import React, { Component } from "react";
-import PRODUCTS from "json/products.json";
+// import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
+import { getProduct } from "actions/products";
+import { connect } from "react-redux";
 
 class Detail extends Component {
-	constructor(props) {
-		super(props);
+	componentDidMount() {
+		this.props.getProduct(this.props.productId);
 	}
-	_handleClick = (productId) => {
-		this.props.addToCart(this.props.product.id);
-	};
+
+	// _handleClick = (productId) => {
+	// 	this.props.addToCart(this.props.product.id);
+	// };
+
 	render() {
 		const { product } = this.props;
+		if (!product) {
+ 			return (<p>LOADING</p>);
+ 		}
+ 		else {
+
 		return (
 			<div className="Detail">
 				<img src={product.images[0].large}/>
@@ -26,6 +35,16 @@ class Detail extends Component {
 			</div>
 		);
 	}
+	}
 }
 
-export default Detail;
+
+function mapStateToProps(state, props) {
+	const { selectedProduct } = state.products;
+	return {
+		productId: props.match.params.productId,
+		product: selectedProduct,
+	};
+}
+
+export default connect(mapStateToProps, { getProduct }) (Detail);

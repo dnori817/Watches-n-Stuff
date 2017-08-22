@@ -10,11 +10,12 @@ import Cart from "pages/Cart";
 import Checkout from "pages/Checkout";
 import Success from "pages/Success";
 
+import reduxThunk from "redux-thunk";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
 import reducers from "reducers";
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(reduxThunk));
 
 class App extends React.Component {
 	state = {
@@ -23,11 +24,11 @@ class App extends React.Component {
 		carTotal: 0,
 	}
 
-	_getProduct = (productId) => {
-		return this.state.products.reduce((prev, product) => {
-			return product.id === productId ? product : prev;
-		});
-	}
+	// _getProduct = (productId) => {
+	// 	return this.state.products.reduce((prev, product) => {
+	// 		return product.id === productId ? product : prev;
+	// 	});
+	// }
 
 	_addToCart = (productId) => {
 		const { cart, products } = this.state;
@@ -59,12 +60,13 @@ class App extends React.Component {
 								);
 							}}
 							/>
-							<Route exact path="/Detail/:productId" render={(props) => {
+							<Route exact path="/Detail/:productId" component = {Detail}/>
+							{/* <Route exact path="/Detail/:productId" render={(props) => {
 								return (
 									<Detail
-										product= {this._getProduct(props.match.params.productId)}
+										product= {this.getProduct(props.match.params.productId)}
 										addToCart = {this._addToCart}
-									/>
+									/> */}
 								);
 							}}
 							/>

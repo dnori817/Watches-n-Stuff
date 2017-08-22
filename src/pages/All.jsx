@@ -2,12 +2,12 @@ import "./All.scss";
 import React, { Component } from "react";
 // import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
-import { getProducts } from "actions/products";
+import { getAllProducts } from "actions/products";
 import { connect } from "react-redux";
 
 class All extends Component {
 	componentDidMount() {
-		this.props.getProducts();
+		this.props.getAllProducts();
 	}
 	render() {
 		const { products } = this.props;
@@ -17,7 +17,7 @@ class All extends Component {
 					{products.map((product) => {
 						return (
 							<div className="container">
-								<Link to={`./Detail/${product.id}`}>
+								<Link key={product.id} to={`/Detail/${product.id}`}>
 									<div className="All-prod center">
 										<h3>{product.name}</h3>
 										<img src={product.images[0].medium}/>
@@ -40,4 +40,4 @@ function mapStateToProps(state, props) {
 	};
 }
 
-export default connect(mapStateToProps, {getProducts})(All);
+export default connect(mapStateToProps, { getAllProducts }) (All);
