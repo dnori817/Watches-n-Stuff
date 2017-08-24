@@ -18,11 +18,11 @@ import reducers from "reducers";
 const store = createStore(reducers, applyMiddleware(reduxThunk));
 
 class App extends React.Component {
-	state = {
-		// products: PRODUCTS,
-		cart: [],
-		carTotal: 0,
-	}
+	// state = {
+	// 	// products: PRODUCTS,
+	// 	cart: [],
+	// 	carTotal: 0,
+	// }
 
 	// _getProduct = (productId) => {
 	// 	return this.state.products.reduce((prev, product) => {
@@ -30,36 +30,39 @@ class App extends React.Component {
 	// 	});
 	// }
 
-	_addToCart = (productId) => {
-		const { cart, products } = this.state;
-		this.setState({
-			cart: [
-				...cart,
-				this._getProduct(productId),
-			],
-			cartTotal: cart.length + 1,
-		});
-		console.log(cart);
-	}
+	// _addToCart = (productId) => {
+	// 	const { cart, products } = this.state;
+	// 	this.setState({
+	// 		cart: [
+	// 			...cart,
+	// 			this._getProduct(productId),
+	// 		],
+	// 		cartTotal: cart.length + 1,
+	// 	});
+	// 	console.log(cart);
+	// }
 
 	render() {
-		const { products, cart, cartTotal } = this.state;
+		// const { products, cart, cartTotal } = this.state;
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
 					<div>
-						<Navigation cartTotal={this.state.cartTotal}/>
+						<Navigation
+							// cartTotal={this.state.cartTotal}
+						/>
 						<Switch>
 							<Route exact path="/" component={Home}/>
 							<Route exact path="/All" component={All}/>
 							<Route exact path="/Checkout" component={Checkout}/>
 
-							<Route exact path="/Cart" render = {(props) => {
+							{/* <Route exact path="/Cart" render = {(props) => {
 								return (
 									<Cart cart = {cart}/>
 								);
 							}}
 							/>
+							*/}
 							<Route exact path="/Detail/:productId" component = {Detail}/>
 							{/* <Route exact path="/Detail/:productId" render={(props) => {
 								return (

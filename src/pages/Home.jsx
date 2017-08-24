@@ -7,7 +7,7 @@ class Home extends Component {
 		return (
 			<div>
 				<div className="Home">
-					{PRODUCTS.map((product) => {
+					{/* {PRODUCTS.map((product) => {
 						return (
 							<div>
 								<Link to={"./All"}>

@@ -20,7 +20,7 @@ class All extends Component {
 								<Link key={product.id} to={`/Detail/${product.id}`}>
 									<div className="All-prod center">
 										<h3>{product.name}</h3>
-										<img src={product.images[0].medium}/>
+										<img src={product.image.small}/>
 
 		 							</div>
 								</Link>
