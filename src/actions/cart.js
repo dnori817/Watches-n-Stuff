@@ -1,13 +1,17 @@
-export function addCart(productId) {
-	return {
-		type: 'ADD_PRODUCT_TO_CART',
-		// productId:
-	};
-}
-
-export function removeCart(productId) {
-	return {
-		// type:
-		// productId:
+export function addToCart(product) {
+	return (dispatch) => {
+		if (product) {
+			dispatch({
+				type: 'ADD_TO_CART',
+				product,
+				productId: product.id,
+			});
+		}
+		else {
+			dispatch({
+				type: "ADD_FAILED",
+				error: "Cannot add to cart!",
+			});
+		}
 	};
 }

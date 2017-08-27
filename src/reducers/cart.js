@@ -1,8 +1,25 @@
 const INITIAL_STATE = {
-	cartProducts: [],
-	subtotal: 0,
+	cart: [],
+	cartTotal: 0,
 };
 
-export default function cartReducer(state = INITIAL_STATE, action) {
-	// switch
+function cartReducer(state = INITIAL_STATE, action) {
+	switch (action.type) {
+	case "ADD_TO_CART":
+		return {
+			cart: [...state.cart,
+				action.product,
+			],
+			cartTotal: state.cartTotal + 1,
+		};
+	case "ADD_FAILED":
+		return {
+			...state,
+			error: action.error,
+		};
+	default:
+		return state;
+	}
 }
+
+export default cartReducer;

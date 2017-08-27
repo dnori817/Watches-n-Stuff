@@ -7,7 +7,7 @@
 6 silly lifecycle webpack-template@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle webpack-template@1.0.0~start: webpack-template@1.0.0
 8 verbose lifecycle webpack-template@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle webpack-template@1.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nori/Desktop/nycda-ecommerce-server-master/node_modules/.bin:/home/nori/.rvm/gems/ruby-2.3.0/bin:/home/nori/.rvm/gems/ruby-2.3.0@global/bin:/home/nori/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin
+9 verbose lifecycle webpack-template@1.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nori/Desktop/nycda-ecommerce-server-master/node_modules/.bin:/home/nori/.rvm/gems/ruby-2.3.0/bin:/home/nori/.rvm/gems/ruby-2.3.0@global/bin:/home/nori/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin:/home/nori/.rvm/bin
 10 verbose lifecycle webpack-template@1.0.0~start: CWD: /home/nori/Desktop/nycda-ecommerce-server-master
 11 silly lifecycle webpack-template@1.0.0~start: Args: [ '-c',
 11 silly lifecycle   'cross-env NODE_ENV=development babel-node ./server/index.js' ]
