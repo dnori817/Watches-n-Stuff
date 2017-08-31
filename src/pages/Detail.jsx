@@ -1,8 +1,10 @@
 import "./Detail.scss";
 import React, { Component } from "react";
-// import PRODUCTS from "json/products.json";
+import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
 import { getProduct } from "actions/products";
+import { addToCart } from "actions/cart";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 class Detail extends Component {
@@ -10,9 +12,9 @@ class Detail extends Component {
 		this.props.getProduct(this.props.productId);
 	}
 
-	// _handleClick = (productId) => {
-	// 	this.props.addToCart(this.props.product.id);
-	// };
+	_handleClick = (product) => {
+		this.props.addToCart(this.props.product);
+	};
 
 	render() {
 		const { product } = this.props;
@@ -20,15 +22,18 @@ class Detail extends Component {
  			return (<p>LOADING</p>);
  		}
  		else {
-
-		return (
-			<div className="Detail">
-				<img src={product.images[0].large}/>
-				<h1>{product.name}</h1>
-				<h2>${product.price}</h2>
-				<a className="waves-effect waves-light btn cart-add left" value = {product.id} onClick = {this._handleClick}>
+			return (
+				<div className="Detail">
+					<img src={product.images[0].large}/>
+					<h1>{product.name}</h1>
+					<h2>${product.price}</h2>
+					<button
+						className="waves-effect waves-light btn cart-add left"
+						value = {product.id}
+						onClick = {this._handleClick}
+					>
 					Add to Cart
-				</a>
+					</button>
 
 
 				<h5 className="left">{product.description}</h5>
@@ -44,7 +49,8 @@ function mapStateToProps(state, props) {
 	return {
 		productId: props.match.params.productId,
 		product: selectedProduct,
+		cart: state.cart,
 	};
 }
 
-export default connect(mapStateToProps, { getProduct }) (Detail);
+export default connect(mapStateToProps, { getProduct, addToCart }) (Detail);

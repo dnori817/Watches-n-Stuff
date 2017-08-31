@@ -33,9 +33,9 @@ class Cart extends Component {
 				})}
 				<h4 className="total">Total: ${total}.00</h4>
 				<Link to={"/Checkout"}>
-					<a className="waves-effect waves-light btn center Checkout">
+					<button className="waves-effect waves-light btn center Checkout">
 						Checkout
-					</a>
+					</button>
 				</Link>
 			</div>
 			<div className="col s3"/>
