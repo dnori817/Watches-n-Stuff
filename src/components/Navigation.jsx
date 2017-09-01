@@ -34,7 +34,7 @@ class Navigation extends Component {
 						})}
 						<Link to={"/Cart"}>
 							<button className="waves-effect waves-light btn cart">
-								<h6 className="cart-total center">{this.props.cartTotal}</h6>
+								{/* <h6 className="cart-total center">{this.props.cartTotal}</h6> */}
 								<i className="cart-icon material-icons center">shopping_cart</i>
 
 							</button>
