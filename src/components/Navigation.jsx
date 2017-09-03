@@ -37,7 +37,7 @@ class Navigation extends Component {
 						})}
 						<Link to={"/Cart"}>
 							<button className="waves-effect waves-light btn cart">
-								<h6 className="cart-total center">{cartTotal}</h6>
+								<h6 className="cart-total center">{ cartTotal }</h6>
 								<i className="cart-icon material-icons center">shopping_cart</i>
 
 							</button>
@@ -52,7 +52,7 @@ class Navigation extends Component {
 
 function mapStateToProps(state, props) {
 	return {
-		cartTotalItems: state.cart.cartTotal,
+		cartTotal: state.cart.cartTotal,
 	};
 }
 

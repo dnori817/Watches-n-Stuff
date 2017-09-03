@@ -17,7 +17,7 @@ class Detail extends Component {
 	};
 
 	render() {
-		const { product, cart } = this.props;
+		const { product, cart, cartTotal } = this.props;
 		if (!product) {
  			return (<p>LOADING</p>);
  		}
@@ -50,6 +50,7 @@ function mapStateToProps(state, props) {
 		productId: props.match.params.productId,
 		product: selectedProduct,
 		cart: state.cart,
+		cartTotal: state.cart,
 	};
 }
 
