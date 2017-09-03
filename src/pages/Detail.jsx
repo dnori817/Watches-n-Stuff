@@ -17,7 +17,7 @@ class Detail extends Component {
 	};
 
 	render() {
-		const { product } = this.props;
+		const { product, cart } = this.props;
 		if (!product) {
  			return (<p>LOADING</p>);
  		}
@@ -29,7 +29,7 @@ class Detail extends Component {
 					<h2>${product.price}</h2>
 					<button
 						className="waves-effect waves-light btn cart-add left"
-						value = {product.id}
+						value = {product}
 						onClick = {this._handleClick}
 					>
 					Add to Cart

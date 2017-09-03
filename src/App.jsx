@@ -57,10 +57,7 @@ class App extends React.Component {
 							<Route exact path="/" component={Home}/>
 							<Route exact path="/All" component={All}/>
 							<Route exact path="/Checkout" component={Checkout}/>
-
 							<Route exact path="/Cart" component={Cart}/>
-
-
 							<Route exact path="/Detail/:productId" component={Detail}/>
 							{/* <Route exact path="/Detail/:productId" render={(props) => {
 								return (

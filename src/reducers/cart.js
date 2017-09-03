@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
 	cart: [],
-	// cartTotal: 0,
+	cartTotal: 0,
 };
 
 function cartReducer(state = INITIAL_STATE, action) {
@@ -10,7 +10,7 @@ function cartReducer(state = INITIAL_STATE, action) {
 			cart: [...state.cart,
 				action.product,
 			],
-			// cartTotal: state.cartTotal + 1,
+			cartTotal: state.cartTotal + 1,
 		};
 	case "ADD_FAILED":
 		return {

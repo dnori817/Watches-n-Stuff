@@ -2,9 +2,12 @@ import "./Navigation.scss";
 import React, { Component } from "react";
 // import PRODUCTS from "json/products.json";
 import { Link, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+
 
 class Navigation extends Component {
 	render() {
+		const { cartTotal } = this.props;
 		const links = [{
 			to: "/",
 			text: "Home",
@@ -34,7 +37,7 @@ class Navigation extends Component {
 						})}
 						<Link to={"/Cart"}>
 							<button className="waves-effect waves-light btn cart">
-								{/* <h6 className="cart-total center">{this.props.cartTotal}</h6> */}
+								<h6 className="cart-total center">{cartTotal}</h6>
 								<i className="cart-icon material-icons center">shopping_cart</i>
 
 							</button>
@@ -47,4 +50,10 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation;
+function mapStateToProps(state, props) {
+	return {
+		cartTotalItems: state.cart.cartTotal,
+	};
+}
+
+export default connect(mapStateToProps) (Navigation);
