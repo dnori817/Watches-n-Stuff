@@ -17,34 +17,36 @@ class Cart extends Component {
 			return prev + parseFloat(product.price);
 		},0);
 
+		if (cartTotal === 0) {
+			return <h1 className="center">Your Cart is Empty</h1>;
+		} else {
+			return (
+				<div className="row">
+					<div className="col s3"/>
 
-		return (
-			<div className="row">
-				<div className="col s3"/>
-
-				<div className="col s6">
-					{/* <h1 className="center">Your Cart is Empty</h1>; */}
-					{cart.map((product) => {
-						return (
-							<div className="cart-row">
-								<h4 className="">{product.name}</h4>
-								<img className="" src={product.images[0].small}/>
-								<h3 className="right">${product.price}</h3>
-							</div>
+					<div className="col s6">
+						{cart.map((product) => {
+							return (
+								<div className="cart-row">
+									<h4 className="">{product.name}</h4>
+									<img className="" src={product.images[0].small}/>
+									<h3 className="right">${product.price}</h3>
+								</div>
 
 
-						);
-					})}
-					<h4 className="total">Total: ${total}.00</h4>
-					<Link to={"/Checkout"}>
-						<button className="waves-effect waves-light btn center Checkout">
-							Checkout
-						</button>
-					</Link>
+							);
+						})}
+						<h4 className="total">Total: ${total}.00</h4>
+						<Link to={"/Checkout"}>
+							<button className="waves-effect waves-light btn center Checkout">
+								Checkout
+							</button>
+						</Link>
+					</div>
+					<div className="col s3"/>
 				</div>
-				<div className="col s3"/>
-			</div>
-		);
+			);
+		}
 	}
 }
 
