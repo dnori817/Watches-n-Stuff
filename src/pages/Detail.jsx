@@ -1,6 +1,6 @@
 import "./Detail.scss";
 import React, { Component } from "react";
-import PRODUCTS from "json/products.json";
+// import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
 import { getProduct } from "actions/products";
 import { addToCart } from "actions/cart";

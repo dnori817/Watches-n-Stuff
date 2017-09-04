@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import PRODUCTS from "json/products.json";
+// import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
+import { connect } from "redux-thunk";
+
 
 class Home extends Component {
 	render() {
 		return (
 			<div>
 				<div className="Home">
-					{PRODUCTS.map((product) => {
+					<h1>Welcome!</h1>
+					{/* {PRODUCTS.map((product) => {
 						return (
 							<div>
 								<Link to={"./All"}>
@@ -23,9 +26,9 @@ class Home extends Component {
 								</Link>
 							</div>
 						);
-					})}
-					{/* <pre>{JSON.stringify(PRODUCTS, null, 2)}</pre> */}
+					})} */}
 				</div>
+				{/* <pre>{JSON.stringify(PRODUCTS, null, 2)}</pre> */}
 			</div>
 		);
 	}
