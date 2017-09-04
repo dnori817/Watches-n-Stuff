@@ -39,8 +39,8 @@ class Checkout extends Component {
 						<label htmlFor="city">City/Town</label>
 					</div>
 					<div className="input-field col s2">
-						<select>
-							<option value="" disabled selected>Select...</option>
+						<select defaultValue="sel">
+							<option value="sel" disabled>Select...</option>
 							<option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -105,9 +105,9 @@ class Checkout extends Component {
 				<div className="row">
 					<div className="col s5"/>
 					<Link to={"/Success"}>
-						<a className="col s2 waves-effect waves-light btn submitOrder">
+						<button className="col s2 waves-effect waves-light btn submitOrder">
 							Submit Order
-						</a>
+						</button>
 					</Link>
 					<div className="col s5"/>
 				</div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getProduct } from "actions/products";
 import { addToCart } from "actions/cart";
 import PropTypes from "prop-types";
+import Loader from "components/Loader.jsx";
 import { connect } from "react-redux";
 
 class Detail extends Component {
@@ -17,14 +18,18 @@ class Detail extends Component {
 	};
 
 	render() {
-		const { product, cart, cartTotal } = this.props;
-		if (!product) {
- 			return (<p>LOADING</p>);
- 		}
+		const { product, isLoading, error, cart, cartTotal } = this.props;
+		let content;
+		if (isLoading) {
+			content = <Loader/>;
+		}
+		else if (!product) {
+			content = <div className =""> { error } </div>;
+		}
  		else {
-			return (
+			content = (
 				<div className="Detail">
-					<img src={product.images[0].large}/>
+					<img src={product.image.large}/>
 					<h1>{product.name}</h1>
 					<h2>${product.price}</h2>
 					<button
@@ -34,12 +39,15 @@ class Detail extends Component {
 					>
 					Add to Cart
 					</button>
-
-
-				<h5 className="left">{product.description}</h5>
+					<h5 className="left">{product.description}</h5>
+				</div>
+			);
+		}
+		return (
+			<div className= "Product">
+				{ content }
 			</div>
 		);
-	}
 	}
 }
 
