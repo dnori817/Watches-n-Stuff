@@ -50,9 +50,7 @@ class App extends React.Component {
 			<Provider store={store}>
 				<BrowserRouter>
 					<div>
-						<Navigation
-							// cartTotal={this.state.cartTotal}
-						/>
+						<Navigation/>
 						<Switch>
 							<Route exact path="/" component={Home}/>
 							<Route key={All} exact path="/All" component={All}/>

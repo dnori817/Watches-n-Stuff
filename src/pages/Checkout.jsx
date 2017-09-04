@@ -13,28 +13,34 @@ class Checkout extends Component {
 				<div className="row">
 					<div className="col s3"/>
 					<div className="input-field col s3">
-						<input className="first_name" type="text" placeholder="First Name"/>
+						<input id="first_name" className="validate" type="text"/>
+						<label htmlFor="first_name">First Name</label>
 					</div>
 					<div className="input-field col s3">
-						<input className="last_name" type="text" placeholder="Last Name"/>
+						<input id="last_name" type="text" className="validate"/>
+						<label htmlFor="last_name">Last Name</label>
+
 					</div>
 					<div className="col s3"/>
 				</div>
 				<div className="row">
 					<div className="col s3"/>
 					<div className="input-field col s6">
-						<input className="street" type="text" placeholder="Street Address"/>
+						<input id="address" className="validate" type="text"/>
+						<label htmlFor="address">Street Address</label>
+
 					</div>
 					<div className="col s3"/>
 				</div>
 				<div className="row">
 					<div className="col s3"/>
-					<div className="col s2">
-						<input className="city" type="text" placeholder="City/Town"/>
+					<div className="input-field col s2">
+						<input id="city" className="validate" type="text"/>
+						<label htmlFor="city">City/Town</label>
 					</div>
-					<div className="col s2">
-						<input className="state" type="text" placeholder="State"/>
-						{/* <select value="">
+					<div className="input-field col s2">
+						<select>
+							<option value="" disabled selected>Select...</option>
 							<option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -86,10 +92,13 @@ class Checkout extends Component {
 							<option value="WV">West Virginia</option>
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
-						</select> */}
+						</select>
+						<label>State</label>
+
 					</div>
-					<div className="col s2">
-						<input className="zip" type="text" placeholder="Zip Code"/>
+					<div className="input-field col s2">
+						<input id="zip" className="validate" type="text"/>
+						<label htmlFor="zip">Zip Code</label>
 					</div>
 					<div className="col s3"/>
 				</div>
