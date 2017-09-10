@@ -28,20 +28,20 @@ function productsReducer(state = INITIAL_STATE, action) {
 	case "SELECTED_PRODUCT_LOADED":
 		return {
 			...state,
-			activeProduct: action.product,
+			selectedProduct: action.product,
 			isLoading: false,
 		};
 	// Error Cases
 	case "PRODUCTS_LOAD_FAILED":
 		return {
 			...state,
-			isLOADING: false,
+			isLoading: false,
 			error: action.error,
 		};
 	case "SELECTED_PRODUCT_LOAD_FAIL":
 		return {
 			...state,
-			isLOADING: false,
+			isLoading: false,
 			error: action.error,
 		};
 	default:

@@ -29,9 +29,9 @@ class Detail extends Component {
  		else {
 			content = (
 				<div className="Detail">
-					<img src={product.image.large}/>
-					<h1>{product.name}</h1>
-					<h2>${product.price}</h2>
+					<img className="right" src={product.images[0].large}/>
+					<h1 className="name">{product.name}</h1>
+					<h2 className="price">${product.price}</h2>
 					<button
 						className="waves-effect waves-light btn cart-add left"
 						value = {product}
@@ -39,7 +39,7 @@ class Detail extends Component {
 					>
 					Add to Cart
 					</button>
-					<h5 className="left">{product.description}</h5>
+					<h5 className="desc right">{product.description}</h5>
 				</div>
 			);
 		}
@@ -53,12 +53,14 @@ class Detail extends Component {
 
 
 function mapStateToProps(state, props) {
-	const { selectedProduct } = state.products;
+	const { selectedProduct, isLoading, error } = state.products;
 	return {
 		productId: props.match.params.productId,
 		product: selectedProduct,
 		cart: state.cart,
 		cartTotal: state.cart,
+		isLoading,
+		error,
 	};
 }
 
