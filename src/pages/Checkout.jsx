@@ -42,7 +42,7 @@ class Checkout extends Component {
 		if (orderSuccess) {
 			message = (
 				<div className = "center OrderSuccess">
-					<p>Your Order is on the Way!</p>
+					<h2>Your Order is on the Way!</h2>
 					<Link to= "/All">Continue Shopping</Link>
 
 				</div>
