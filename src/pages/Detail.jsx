@@ -1,6 +1,5 @@
 import "./Detail.scss";
 import React, { Component } from "react";
-// import PRODUCTS from "json/products.json";
 import { Link } from "react-router-dom";
 import { getProduct } from "actions/products";
 import { addToCart } from "actions/cart";
@@ -33,9 +32,11 @@ class Detail extends Component {
 					<h1 className="name">{product.name}</h1>
 					<h2 className="price">${product.price}</h2>
 					<button
+
 						className="waves-effect waves-light btn cart-add left"
 						value = {product}
 						onClick = {this._handleClick}
+
 					>
 					Add to Cart
 					</button>

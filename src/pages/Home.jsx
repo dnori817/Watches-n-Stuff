@@ -8,8 +8,9 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<div className="Home">
-					<h1>Welcome!</h1>
+				<div className="center Home">
+					<h1 className="">Welcome!</h1>
+					<Link to="/All"><h2>BUY MY WATCHES!!!!!</h2></Link>
 					{/* {PRODUCTS.map((product) => {
 						return (
 							<div>

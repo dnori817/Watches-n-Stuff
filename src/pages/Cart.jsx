@@ -18,7 +18,13 @@ class Cart extends Component {
 		},0);
 
 		if (cartTotal === 0) {
-			return <h1 className="center">Your Cart is Empty</h1>;
+			return (
+				<div className="center">
+					<h1>Your Cart is Empty</h1>
+					<h3><Link to= "/All">Continue Shopping</Link></h3>
+				</div>
+			);
+
 		} else {
 			return (
 				<div className="row">
@@ -37,7 +43,7 @@ class Cart extends Component {
 							);
 						})}
 						<h4 className="total">Total: ${total}.00</h4>
-						<Link to={"/Checkout"}>
+						<Link key="Checkout" to={"/Checkout"}>
 							<button className="waves-effect waves-light btn center Checkout">
 								Checkout
 							</button>

@@ -20,32 +20,7 @@ import reducers from "reducers";
 const store = createStore(reducers, applyMiddleware(reduxThunk));
 
 class App extends React.Component {
-	// state = {
-	// 	// products: PRODUCTS,
-	// 	cart: [],
-	// 	carTotal: 0,
-	// }
-
-	// _getProduct = (productId) => {
-	// 	return this.state.products.reduce((prev, product) => {
-	// 		return product.id === productId ? product : prev;
-	// 	});
-	// }
-
-	// _addToCart = (productId) => {
-	// 	const { cart, products } = this.state;
-	// 	this.setState({
-	// 		cart: [
-	// 			...cart,
-	// 			this._getProduct(productId),
-	// 		],
-	// 		cartTotal: cart.length + 1,
-	// 	});
-	// 	console.log(cart);
-	// }
-
 	render() {
-		// const { products, cart, cartTotal } = this.state;
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
@@ -53,7 +28,7 @@ class App extends React.Component {
 						<Navigation/>
 						<Switch>
 							<Route exact path="/" component={Home}/>
-							<Route key={All} exact path="/All" component={All}/>
+							<Route exact path="/All" component={All}/>
 							<Route exact path="/Checkout" component={Checkout}/>
 							<Route exact path="/Cart" component={Cart}/>
 							<Route exact path="/Detail/:productId" component={Detail}/>
