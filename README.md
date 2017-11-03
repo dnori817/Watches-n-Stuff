@@ -1,6 +1,6 @@
-#Watches n' Stuff React eCommerce Site
+# Watches n' Stuff React eCommerce Site
 ___
-##Shop now:
+## Shop now:
 https://watchesnstuff.herokuapp.com/
 
 ## Pages:
