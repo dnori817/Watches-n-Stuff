@@ -21,7 +21,7 @@ class Navigation extends Component {
 		return (
 			<div className="navbar-fixed">
 				<nav className="Nav nav-wrapper">
-					<h3 className="left title">Watches n' Sh*t</h3>
+					<h3 className="left title">Watches n' Stuff</h3>
 					<div className="right">
 
 						{links.map((link) => {
