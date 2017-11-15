@@ -25,7 +25,7 @@ https://watchesnstuff.herokuapp.com/
 ### Order Received Page
 * dummy page acknowledging purchase has been received
 * link to return to store
-##### all pages will have a navigation bar to the left or top of page with links to item categories and to shopping cart (shopping cart link will show total items in cart)
+
 ___
 ## Components:
 
